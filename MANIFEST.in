@@ -1,0 +1,9 @@
+include README.md LICENSE CHANGELOG.md COMPATIBILITY.md
+recursive-include docs *.md *.csv *.txt
+recursive-include frontend *.ts *.json *.mjs
+prune frontend/node_modules
+recursive-include tests *.py
+recursive-include tools *.py
+recursive-include inventree_universal_importer/static *.js
+recursive-include .github/workflows *.yml
+global-exclude *.pyc

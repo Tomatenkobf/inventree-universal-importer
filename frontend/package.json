@@ -1,0 +1,16 @@
+{
+  "name": "universal-importer-ui",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit && esbuild src/importer.ts --bundle --format=esm --target=es2020 --outfile=../inventree_universal_importer/static/plugins/universal-importer/importer.js",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "jsdom": "26.1.0",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3"
+  }
+}

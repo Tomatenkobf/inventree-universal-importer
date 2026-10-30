@@ -1,0 +1,26 @@
+name: Build release candidate
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m pip install '.[test]'
+      - run: npm ci && npm run build && npm test
+        working-directory: frontend
+      - run: python -m pytest -q && python -m build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-candidate
+          path: dist/*
+# Deliberately builds downloadable artifacts only. Publishing requires the
+# integration workflow and the deployment smoke checklist in docs/testing.md.

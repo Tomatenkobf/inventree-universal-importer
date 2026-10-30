@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "inventree-universal-importer"
+version = "0.1.0rc2"
+description = "Unified, review-first product lookup and import for InvenTree"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+dependencies = ["requests>=2.32,<3", "packaging>=24", "Pillow>=10", "urllib3>=2.2,<3", "pypdf>=5"]
+[project.optional-dependencies]
+test = ["pytest>=8", "pytest-cov", "build"]
+[project.entry-points.inventree_plugins]
+universal_importer = "inventree_universal_importer.plugin:UniversalImporterPlugin"
+[tool.setuptools.packages.find]
+include = ["inventree_universal_importer*"]
+[tool.setuptools.package-data]
+inventree_universal_importer = ["static/plugins/universal-importer/*"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
