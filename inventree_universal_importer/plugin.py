@@ -12,9 +12,9 @@ class UniversalImporterPlugin(
     DESCRIPTION = (
         "Review products from multiple databases before importing or enriching parts"
     )
-    VERSION = "0.1.0rc2"
+    VERSION = "0.1.0rc3"
     MIN_VERSION = "1.5.6"
-    MAX_VERSION = "1.6.3"
+    MAX_VERSION = "1.7.0"
     SETTINGS = SETTINGS
 
     def __init__(self):

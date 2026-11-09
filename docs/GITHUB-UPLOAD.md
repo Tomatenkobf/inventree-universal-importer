@@ -1,4 +1,4 @@
-# Upload rc2 to your GitHub repository
+# Upload rc3 to your GitHub repository
 
 The archive contains `project/` (repository files) and `release/` (built packages).
 Only copy the CONTENTS of `project/` into the repository. `pyproject.toml` must be
@@ -7,18 +7,18 @@ install the plugin. No API credentials or InvenTree databases are included.
 
 ## Recommended WSL route
 
-Extract this delivery under `~/inventree-plugin-rc2`. Clone your GitHub repository
+Extract this delivery under `~/inventree-plugin-rc3`. Clone your GitHub repository
 into a separate directory (works whether it is empty or has an initial README):
 
 ```bash
 cd ~
 git clone https://github.com/Tomatenkobf/inventree-universal-importer.git inventree-plugin-github
-cp -a ~/inventree-plugin-rc2/project/. ~/inventree-plugin-github/
+cp -a ~/inventree-plugin-rc3/project/. ~/inventree-plugin-github/
 cd ~/inventree-plugin-github
 git status --short
 git add .
 git diff --cached --stat
-git commit -m "Release 0.1.0rc2: fix parsed request body handling"
+git commit -m "Release 0.1.0rc3: fix parsed request body handling"
 git push -u origin HEAD
 ```
 
@@ -31,16 +31,16 @@ password. Keep tokens out of URLs, files and chat. If authentication is inconven
 use GitHub Desktop to clone, copy project contents, commit and push instead.
 
 Wait for GitHub Actions checks to pass. Then create the release via GitHub:
-Releases -> Draft a new release -> new tag `v0.1.0rc2` targeting your uploaded
+Releases -> Draft a new release -> new tag `v0.1.0rc3` targeting your uploaded
 commit. Mark it as a pre-release. Attach the wheel and source tarball from
 `release/`. Publish the release. Do not reuse or move this tag for later fixes.
 
-## InvenTree installer (1.5.6)
+## InvenTree installer (1.5.6 / 1.7.0)
 
 Only after that tag exists, enter:
 
 - Package Name: `inventree-universal-importer`
-- Source URL: `git+https://github.com/Tomatenkobf/inventree-universal-importer.git@v0.1.0rc2`
+- Source URL: `git+https://github.com/Tomatenkobf/inventree-universal-importer.git@v0.1.0rc3`
 - Version: leave blank (the Git URL pins the release)
 
 The server needs Git, access to GitHub/dependency sources, and permission to install
@@ -59,15 +59,14 @@ on container recreation, or bake it into a maintained image. A successful web
 installation alone does not prove persistence or worker consistency. See
 `docs/installation.md`; exact Compose service names depend on your deployment.
 
-rc2 has no new schema migrations compared with rc1, but first installation still
+rc3 has no new schema migrations compared with rc1, but first installation still
 requires the existing plugin migration. Run a single import without/with an image
 and a repeated lookup before broader use. Keep demo disabled for real imports.
 
 ## Validation
 
-Historical validation files, if supplied separately, concern rc1. rc2 adds two
-regression tests covering already-parsed bodies and oversized declared requests.
-See the delivered validation summary for the exact checks rerun for rc2. User
+Historical validation files, if supplied separately, concern rc1. rc3 adds InvenTree 1.7.0 coverage and exercises the real plugin static collector.
+See the delivered validation summary for the exact checks rerun for rc3. User
 reports confirm local provider imports, but do not establish production readiness.
 
 References:

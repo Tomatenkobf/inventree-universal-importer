@@ -49,6 +49,9 @@ def test_mixed_dns_rejected(monkeypatch):
 
 def test_compatibility():
     assert status("1.5.6")["allowed"]
+    assert status("1.7.0")["allowed"]
+    assert not status("1.7.1")["allowed"]
+    assert not status("1.7.0rc1")["allowed"]
     assert not status("1.6.0")["allowed"]
     assert not status("2.0.0")["tested"]
     assert not status("invalid")["allowed"]

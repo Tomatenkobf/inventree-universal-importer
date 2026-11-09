@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { JSDOM } from "jsdom";
-import { renderPanel } from "../../inventree_universal_importer/static/plugins/universal-importer/importer.js";
+import { renderPanel } from "../../inventree_universal_importer/static/importer.js";
 const wait = () => new Promise((resolve) => setTimeout(resolve, 20));
 test("search renders safe text, preview requires explicit confirmation", async () => {
   const dom = new JSDOM('<div id="root"></div>', {

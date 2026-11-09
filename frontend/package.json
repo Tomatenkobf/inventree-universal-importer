@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "build": "tsc --noEmit && esbuild src/importer.ts --bundle --format=esm --target=es2020 --outfile=../inventree_universal_importer/static/plugins/universal-importer/importer.js",
+    "build": "tsc --noEmit && esbuild src/importer.ts --bundle --format=esm --target=es2020 --outfile=../inventree_universal_importer/static/importer.js",
     "test": "node --test tests/*.test.mjs"
   },
   "devDependencies": {

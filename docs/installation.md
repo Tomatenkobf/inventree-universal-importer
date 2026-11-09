@@ -17,7 +17,7 @@ The names below are placeholders, not an assumed Compose structure.
    requirements file configured by `INVENTREE_PLUGIN_FILE`:
 
    ```text
-   /plugins-wheels/inventree_universal_importer-0.1.0rc2-py3-none-any.whl
+   /plugins-wheels/inventree_universal_importer-0.1.0rc3-py3-none-any.whl
    ```
 
    Preserve all existing lines. The file is normally called `plugins.txt`; its
@@ -67,7 +67,7 @@ image build. Preserve the InvenTree database and media using its normal volumes.
 Activate the **same virtualenv as the InvenTree web server and worker**:
 
 ```sh
-python -m pip install /absolute/path/inventree_universal_importer-0.1.0rc2-py3-none-any.whl
+python -m pip install /absolute/path/inventree_universal_importer-0.1.0rc3-py3-none-any.whl
 ```
 
 Alternatively, from the extracted source project:

@@ -1,6 +1,6 @@
 # InvenTree Universal Product Importer
 
-**0.1.0rc2 — staging release candidate.** One installable plugin for mixed inventory:
+**0.1.0rc3 — staging release candidate.** One installable plugin for mixed inventory:
 GTIN/UPC/EAN, manufacturer + MPN, manufacturer discovery, product text, IPN lookup,
 and reviewed CSV imports. No separate application server, database or Redis service.
 
@@ -12,7 +12,7 @@ browser workflow on your deployment still need the smoke test below.
 ## What is implemented
 
 - A native plugin panel and dashboard widget on InvenTree 1.5.6 / 1.5.7.
-- An additional native navigation page on 1.6.3 at
+- An additional native navigation page on 1.6.3 and 1.7.0 at
   `/web/plugin/universal-importer/import` (adjust the prefix if hosted below a subpath).
 - Typed TypeScript UI using InvenTree's supported two-argument DOM renderer, the
   host's authenticated API client and Mantine theme variables. No second React
@@ -45,7 +45,7 @@ browser workflow on your deployment still need the smoke test below.
    `OPENFOODFACTS_ENABLED`, and enter `4006381333931` or MPN `SENSOR-01` with
    manufacturer `Example Instruments`.
 5. Open a part/category's **Universal Product Importer** panel, or add the widget
-   to your dashboard. On 1.6.3, the navigation item opens the dedicated page.
+   to your dashboard. On 1.6.3 and 1.7.0, the navigation item opens the dedicated page.
 6. Review, edit and import into staging. Enable manufacturer creation only if
    appropriate, or leave the manufacturer field unselected.
 7. Disable the demo provider, configure real sources and run the live smoke test
@@ -54,7 +54,7 @@ browser workflow on your deployment still need the smoke test below.
 ## Release limits
 
 - 1.5.6 has no custom UI route hook. Its supported panel/widget is the entry point;
-  a separate native route is provided only for 1.6.3. No core files are patched.
+  a separate native route is provided for 1.6.3 and 1.7.0. No core files are patched.
 - GS1 has **no live adapter** without a specific authorized member-organisation API
   contract. The package does not guess a global GS1 endpoint.
 - Commercial adapters are tested with mocks, not real accounts. No credentials

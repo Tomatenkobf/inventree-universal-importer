@@ -1,3 +1,9 @@
+# 0.1.0rc3
+
+- Add InvenTree 1.7.0 compatibility and CI coverage.
+- Correct plugin static file layout so automatic collection places importer.js at the advertised URL.
+- Retain rc2 request parsing fix. No schema changes.
+
 # 0.1.0rc2
 
 - Fix RawPostDataException when InvenTree authentication has already parsed a request.

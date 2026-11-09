@@ -1,4 +1,20 @@
-# Compatibility — 0.1.0rc1
+# Compatibility — 0.1.0rc3
+
+Target added: InvenTree 1.7.0, commit `365245ed73eb469cf80578856947ce92eca8b271`.
+The metadata ceiling is 1.7.0. Exact runtime versions allowed are 1.5.6, 1.5.7,
+1.6.3 and 1.7.0. Other releases, including prereleases, remain unverified and blocked.
+
+The JavaScript asset is now `inventree_universal_importer/static/importer.js`.
+InvenTree's collector supplies the `plugins/universal-importer/` destination prefix.
+The integration test now calls that collector and reads the resulting asset;
+the previous static finder test did not check this deployment path.
+
+On 2026-11-04, fresh migration, normal startup, system checks and static collection passed on 1.7.0. Of 18 integration tests, 17 passed initially; the remaining test assumed the host did not cache request bodies. After correcting that test setup, its targeted rerun passed. Unit tests: 61 passed; frontend tests: 2 passed. See the delivery's VALIDATION.txt for details. The older
+results below are historical, not claims of rerunning rc3 on every older release.
+CI now includes 1.7.0 alongside the three older versions. No full native-shell
+browser or production-server test is claimed.
+
+# Historical rc1 validation
 
 Status recorded 2026-10-29. Exact tagged source was inspected and exercised.
 Automated backend compatibility is distinct from production acceptance.
@@ -8,7 +24,7 @@ Automated backend compatibility is distinct from production acceptance.
 | 1.5.6 | `284a670413cc544b899f6a60713b9676beccb8ea` | 16 tests passed | Part/category panel and dashboard widget |
 | 1.5.7 | `2ca0d0e55b08e138342b20fccfa8307fad25a02c` | 15 tests passed | Part/category panel and dashboard widget |
 | 1.6.3 | `221af32fdb4382f29c351d9dd9b39992bfaf8d12` | 16 tests passed | Panel/widget plus navigation page |
-| Other versions | Not evaluated | Not supported by this candidate | Runtime import gate rejects them |
+
 
 Fresh-database migration, normal Django/plugin startup, system checks and static
 collection passed on all three versions. Unit tests: 61 passed. Frontend DOM tests:

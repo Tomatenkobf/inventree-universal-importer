@@ -3,7 +3,7 @@ requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "inventree-universal-importer"
-version = "0.1.0rc2"
+version = "0.1.0rc3"
 description = "Unified, review-first product lookup and import for InvenTree"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -16,6 +16,6 @@ universal_importer = "inventree_universal_importer.plugin:UniversalImporterPlugi
 [tool.setuptools.packages.find]
 include = ["inventree_universal_importer*"]
 [tool.setuptools.package-data]
-inventree_universal_importer = ["static/plugins/universal-importer/*"]
+inventree_universal_importer = ["static/*"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]

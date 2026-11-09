@@ -204,6 +204,11 @@ class IntegrationTests(TestCase):
         request = Request(raw, parsers=[JSONParser()])
         request.user = self.user
         self.assertEqual(request.data, {})
+        # Some host versions cache the raw body during request setup.
+        # Reproduce an already-consumed stream without that optional cache.
+        if hasattr(raw, "_body"):
+            del raw._body
+        raw._read_started = True
         with self.assertRaises(RawPostDataException):
             _ = raw.body
         response = ImporterView(plugin=self.plugin).post(request, action="config")
@@ -232,14 +237,18 @@ class IntegrationTests(TestCase):
     def test_actual_registry_urls_and_static_assets(self):
         from django.apps import apps
         from django.urls import reverse, resolve
-        from django.contrib.staticfiles import finders
+        from django.contrib.staticfiles.storage import staticfiles_storage
+        from plugin.staticfiles import copy_plugin_static_files
         from plugin.registry import registry
 
         self.assertTrue(apps.is_installed("inventree_universal_importer"))
         self.assertIsNotNone(registry.get_plugin(self.plugin.slug, active=None))
         url = reverse("plugin:universal-importer:api", kwargs={"action": "search"})
         self.assertEqual(resolve(url).kwargs["action"], "search")
-        self.assertIsNotNone(finders.find("plugins/universal-importer/importer.js"))
+        copy_plugin_static_files(self.plugin.slug)
+        self.assertTrue(staticfiles_storage.exists("plugins/universal-importer/importer.js"))
+        with staticfiles_storage.open("plugins/universal-importer/importer.js") as asset:
+            self.assertIn(b"renderPanel", asset.read())
 
     def test_shared_rate_gate(self):
         from inventree_universal_importer.inventree_adapter.cache import SharedRateCache
