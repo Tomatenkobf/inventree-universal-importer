@@ -12,7 +12,8 @@ def status(version=None):
     try:
         parsed = Version(version)
         compatible = (
-            str(parsed) in {"1.5.6", "1.5.7", "1.6.3", "1.7.0"} and not parsed.is_prerelease
+            Version("1.5.6") <= parsed <= Version("2.0.0")
+            and not parsed.is_prerelease
         )
     except InvalidVersion:
         compatible = False

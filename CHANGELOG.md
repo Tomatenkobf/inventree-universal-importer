@@ -1,3 +1,11 @@
+# 0.1.0rc4
+
+- Allow stable InvenTree versions 1.5.6 through 2.0.0 inclusive.
+- Preserve tested-version reporting; untested releases warn but are no longer blocked within this range.
+- Retain rc3 static packaging and rc2 request-body fixes.
+- Pin CI runners to Ubuntu 24.04, preserving the GitHub setup fix.
+- No database schema changes.
+
 # 0.1.0rc3
 
 - Add InvenTree 1.7.0 compatibility and CI coverage.

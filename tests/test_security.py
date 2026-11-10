@@ -50,9 +50,9 @@ def test_mixed_dns_rejected(monkeypatch):
 def test_compatibility():
     assert status("1.5.6")["allowed"]
     assert status("1.7.0")["allowed"]
-    assert not status("1.7.1")["allowed"]
+    assert status("1.7.1")["allowed"]
     assert not status("1.7.0rc1")["allowed"]
-    assert not status("1.6.0")["allowed"]
+    assert status("1.6.0")["allowed"]
     assert not status("2.0.0")["tested"]
     assert not status("invalid")["allowed"]
 
@@ -91,3 +91,20 @@ def test_media_pins_ip_and_rejects_redirect(monkeypatch):
     assert calls["request"]["redirect"] is False
     assert calls["request"]["headers"]["Host"] == "allowed.example"
     assert calls["closed"] and calls["pool_closed"]
+
+
+@pytest.mark.parametrize("version", ["1.5.6", "1.6.4", "1.7.1", "1.8.0", "1.99.0", "2.0.0"])
+def test_allowed_version_range(version):
+    assert status(version)["allowed"]
+
+
+@pytest.mark.parametrize("version", ["1.5.5", "2.0.1", "2.1.0", "1.8.0rc1", "2.0.0.dev1", "invalid"])
+def test_rejected_version_range(version):
+    assert not status(version)["allowed"]
+
+
+def test_untested_version_warns_without_blocking():
+    result = status("1.8.0")
+    assert result["allowed"]
+    assert not result["tested"]
+    assert result["warning"]

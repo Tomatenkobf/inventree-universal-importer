@@ -1,3 +1,7 @@
+# Compatibility policy — 0.1.0rc4
+
+Stable InvenTree versions 1.5.6 through 2.0.0 inclusive are permitted by both plugin metadata and the runtime gate. Prereleases and versions outside that range are rejected. This is a user-requested permissive policy, not a claim that all these versions have been tested or will work. Untested versions retain a non-blocking warning. Historical test results below remain historical. No new full InvenTree integration run was performed for this version-policy change.
+
 # Compatibility — 0.1.0rc3
 
 Target added: InvenTree 1.7.0, commit `365245ed73eb469cf80578856947ce92eca8b271`.

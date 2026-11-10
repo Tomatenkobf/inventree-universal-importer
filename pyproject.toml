@@ -3,7 +3,7 @@ requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "inventree-universal-importer"
-version = "0.1.0rc3"
+version = "0.1.0rc4"
 description = "Unified, review-first product lookup and import for InvenTree"
 readme = "README.md"
 requires-python = ">=3.12"

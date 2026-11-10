@@ -1,6 +1,6 @@
 # InvenTree Universal Product Importer
 
-**0.1.0rc3 — staging release candidate.** One installable plugin for mixed inventory:
+**0.1.0rc4 — staging release candidate.** One installable plugin for mixed inventory:
 GTIN/UPC/EAN, manufacturer + MPN, manufacturer discovery, product text, IPN lookup,
 and reviewed CSV imports. No separate application server, database or Redis service.
 

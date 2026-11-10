@@ -12,7 +12,7 @@ class UniversalImporterPlugin(
     DESCRIPTION = (
         "Review products from multiple databases before importing or enriching parts"
     )
-    VERSION = "0.1.0rc3"
+    VERSION = "0.1.0rc4"
     MIN_VERSION = "1.5.6"
     MAX_VERSION = "2.0.0"
     SETTINGS = SETTINGS

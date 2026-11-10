@@ -18,7 +18,7 @@ cd ~/inventree-plugin-github
 git status --short
 git add .
 git diff --cached --stat
-git commit -m "Release 0.1.0rc3: fix parsed request body handling"
+git commit -m "Release 0.1.0rc4: fix parsed request body handling"
 git push -u origin HEAD
 ```
 
@@ -31,7 +31,7 @@ password. Keep tokens out of URLs, files and chat. If authentication is inconven
 use GitHub Desktop to clone, copy project contents, commit and push instead.
 
 Wait for GitHub Actions checks to pass. Then create the release via GitHub:
-Releases -> Draft a new release -> new tag `v0.1.0rc3` targeting your uploaded
+Releases -> Draft a new release -> new tag `v0.1.0rc4` targeting your uploaded
 commit. Mark it as a pre-release. Attach the wheel and source tarball from
 `release/`. Publish the release. Do not reuse or move this tag for later fixes.
 
@@ -40,7 +40,7 @@ commit. Mark it as a pre-release. Attach the wheel and source tarball from
 Only after that tag exists, enter:
 
 - Package Name: `inventree-universal-importer`
-- Source URL: `git+https://github.com/Tomatenkobf/inventree-universal-importer.git@v0.1.0rc3`
+- Source URL: `git+https://github.com/Tomatenkobf/inventree-universal-importer.git@v0.1.0rc4`
 - Version: leave blank (the Git URL pins the release)
 
 The server needs Git, access to GitHub/dependency sources, and permission to install
