@@ -9,6 +9,7 @@ class UniversalImporterPlugin(
     NAME = "Universal Product Importer"
     SLUG = "universal-importer"
     TITLE = "Universal Product Importer"
+    AUTHOR = "Sebastian Ahrens"
     DESCRIPTION = (
         "Review products from multiple databases before importing or enriching parts"
     )
